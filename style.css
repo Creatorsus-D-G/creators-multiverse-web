@@ -45,6 +45,23 @@ body {
     margin-bottom: 0.5rem;
 }
 
+.main-icon {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    border: 3px solid var(--gold-primary);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+    margin-bottom: 1rem;
+    object-fit: cover;
+    background-color: var(--bg-card);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.main-icon:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 35px rgba(212, 175, 55, 0.6);
+}
+
 .main-header p {
     color: var(--gold-light);
     font-size: 1.1rem;
