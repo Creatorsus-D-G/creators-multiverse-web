@@ -249,3 +249,37 @@ main {
     border-radius: 0.5rem;
     color: #ff8888;
 }
+
+/* =========================================
+   ESTILOS PARA LOS CONTENEDORES DE CITAS (>)
+   ========================================= */
+.quote-container {
+    margin-bottom: 1.5rem;
+}
+
+.quote-container blockquote {
+    border-left: 5px solid var(--gold-primary);
+    background: rgba(212, 175, 55, 0.04); /* Fondo dorado muy sutil y elegante */
+    padding: 1.2rem 1.5rem;
+    border-radius: 0 1rem 1rem 0;
+    margin: 0;
+    color: var(--text-main);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+/* Efecto al pasar el mouse o tocar en móvil */
+.quote-container blockquote:hover {
+    transform: translateX(6px);
+    box-shadow: 0 6px 15px rgba(212, 175, 55, 0.15);
+    border-left-color: var(--plant-accent); /* Cambia a verde planta al interactuar */
+    background: rgba(76, 175, 80, 0.06);
+}
+
+/* Aseguramos que los enlaces dentro de las citas se vean bien */
+.quote-container blockquote a {
+    color: var(--gold-primary);
+    font-weight: 600;
+}
