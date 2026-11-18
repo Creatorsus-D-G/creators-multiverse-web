@@ -9,31 +9,26 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             const markdownText = await response.text();
-            
-            // 1. Renderizamos el Markdown a HTML normal
             let html = marked.parse(markdownText);
             
-            // 2. Creamos un elemento temporal en memoria para manipular el HTML
             const tempDiv = document.createElement('div');
             tempDiv.innerHTML = html;
 
-            // 3. Buscamos todos los blockquotes (los que genera el ">")
             const blockquotes = tempDiv.querySelectorAll('blockquote');
             
             blockquotes.forEach(bq => {
-                // Obtenemos todos los párrafos (<p>) dentro de este blockquote
                 const paragraphs = bq.querySelectorAll('p');
                 
-                // Si hay más de un párrafo, los separamos en contenedores distintos
                 if (paragraphs.length > 1) {
                     const fragment = document.createDocumentFragment();
                     
                     paragraphs.forEach(p => {
-                        // Creamos un contenedor distinto para cada párrafo
+                        // 🛡️ PROTECCIÓN: Si el párrafo está vacío, no lo procesamos
+                        if (!p.textContent.trim()) return; 
+                        
                         const newContainer = document.createElement('div');
                         newContainer.className = 'quote-container'; 
                         
-                        // Creamos un blockquote individual para mantener el estilo base
                         const newBq = document.createElement('blockquote');
                         newBq.innerHTML = p.innerHTML;
                         
@@ -41,15 +36,17 @@ document.addEventListener('DOMContentLoaded', () => {
                         fragment.appendChild(newContainer);
                     });
                     
-                    // Reemplazamos el blockquote original (agrupado) por los nuevos separados
                     bq.replaceWith(fragment);
                 } else {
-                    // Si solo hay un párrafo, solo le añadimos la clase para que tenga el mismo estilo
-                    bq.classList.add('quote-container');
+                    // También aplicamos la protección aquí por si acaso
+                    if (paragraphs[0] && paragraphs[0].textContent.trim()) {
+                        bq.classList.add('quote-container');
+                    } else {
+                        bq.remove(); // Elimina blockquotes completamente vacíos
+                    }
                 }
             });
 
-            // 4. Inyectamos el HTML ya procesado y separado en la página
             contentDiv.innerHTML = tempDiv.innerHTML;
             
         } catch (error) {
