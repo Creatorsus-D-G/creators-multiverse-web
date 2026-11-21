@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://leonelb2840-design.github.io/creators-multiverse-web/sitemap.xml
+Sitemap: https://creatorsus-d-g.github.io/creators-multiverse-web/sitemap.xml
