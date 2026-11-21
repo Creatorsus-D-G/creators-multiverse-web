@@ -1,0 +1,14 @@
+changelog:
+  categories:
+    - title: 🚀 Novedades
+      labels:
+        - enhancement
+    - title: 🐛 Correcciones
+      labels:
+        - bug
+    - title: 🎨 Diseño
+      labels:
+        - design
+    - title: 📦 Otros
+      labels:
+        - "*"
