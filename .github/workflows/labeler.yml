@@ -1,0 +1,19 @@
+# Etiquetas para cambios en la web
+web:
+  - changed-files:
+      - any-glob-to-any-file: ['*.html', '*.css', '*.js']
+
+# Etiquetas para cambios en documentación
+documentation:
+  - changed-files:
+      - any-glob-to-any-file: ['*.md', 'docs/**/*']
+
+# Etiquetas para cambios en assets
+assets:
+  - changed-files:
+      - any-glob-to-any-file: ['*.png', '*.jpg', '*.svg', 'assets/**/*']
+
+# Etiquetas para cambios en configuración
+config:
+  - changed-files:
+      - any-glob-to-any-file: ['.github/**/*', '*.yml', '*.json']
