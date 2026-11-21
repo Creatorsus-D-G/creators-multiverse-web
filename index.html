@@ -18,6 +18,9 @@
     
     <!-- Marked.js (Librería externa: excepción permitida en HTML) -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <meta name="theme-color" content="#D4AF37">
+<link rel="manifest" href="./manifest.json">
+<link rel="apple-touch-icon" href="./icon.png">
 </head>
 <body>
 
@@ -57,5 +60,10 @@
 
     <!-- Lógica separada -->
     <script src="script.js"></script>
+  <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js', { scope: './' });
+  }
+  </script>
 </body>
   </html>
